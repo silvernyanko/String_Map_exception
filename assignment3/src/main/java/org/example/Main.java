@@ -20,8 +20,18 @@ public class Main {
                 }
             }
         } catch (Exception e) {
+<<<<<<< HEAD
             System.out.println("エラー: 指定したキーでの検索は禁止されています。");
+=======
+            System.out.println("エラー: インデックスが範囲外です");
+>>>>>>> origin/main
         }
     }
 }
 
+<<<<<<< HEAD
+=======
+
+
+//課題のソースコードをGitHubにpushしてレビューを依頼する
+>>>>>>> origin/main
