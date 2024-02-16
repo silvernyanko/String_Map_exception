@@ -1,10 +1,25 @@
 # String_Map_exception
 
 ## 作成内容
-String型のMapを作り、例外を起こしてみる。
+国名を指定した時にその国の首都が表示されるプログラムを組みました。  
+String型のMapを作り、例外を起こしました。  
 
 ### String型のMapを作る。
-
+``` 
+public class Main {
+    public static void main(String[] args) {
+        Map<String, String> northEuropeMap = new HashMap<>();
+        northEuropeMap.put("フィンランド", "ヘルシンキ");
+        northEuropeMap.put("ノルウェー", "オスロ");
+        northEuropeMap.put("スウェーデン", "ストックホルム");
+        northEuropeMap.put("デンマーク", "コペンハーゲン");
+        :
+        //(以下省略)
+    }
+}
+```
+HashMapを使ってString型の値が出力されるようにしました。
+keyには国名、valueには首都を設定しました。  
 
 #### Mapについて
 JavaのMapは、キーと値のペアを格納するデータ構造です。  
@@ -22,10 +37,31 @@ JavaのMapインターフェースは、次の主要な実装を提供してい�
    キーがソートされた状態で保持されるため、イテレーションした際にはキーがソートされた状態で取得できます。  
 3. LinkedHashMap  
    キーと値の順序を保持します。  
-   追加された順序やアクセスされた順序でエントリを保持することができます。
-   ## //Mapの説明は表にするとよい　　
+   追加された順序やアクセスされた順序でエントリを保持することができます。　　
      
 これらのMap実装は、異なる使用ケースや要件に応じて選択することができます。  
 例えば、データの追加や検索が頻繁に行われる場合はHashMapが適していますが、ソートされたキーが必要な場合はTreeMapを使用すると便利です。  
 
-### 例外を発生させる
+### Mapに格納された値を全出力表示させる。
+```
+for (String key : northEuropeMap.keySet()) {
+                //(以下省略)
+                    System.out.println(key + "の首都は" + northEuropeMap.get(key));
+                }
+```
+
+### 指定した条件に対して例外を発生させる
+```
+try {
+            for (String key : northEuropeMap.keySet()) {
+                if (key.equals("デンマーク")) {
+                    throw new Exception();
+                } else {
+                    System.out.println(key + "の首都は" + northEuropeMap.get(key));
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("エラー: 指定したキーでの検索は禁止されています。");
+        }
+```
+try-catch構文を使用しました。  
